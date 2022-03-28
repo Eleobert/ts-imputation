@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.impute import SimpleImputer, KNNImputer
 
 
-df = pd.read_csv("AirQualityUCI.csv", sep=';', decimal=',').iloc[0:9357:, 0:15]
+df = pd.read_csv("AirQualityUCI.csv", sep=';', decimal=',').iloc[0:9357:, 2:15]
 df
 
 # %%
@@ -15,7 +15,6 @@ def plant_nans(x, p):
     mask = np.random.uniform(size=x.shape)
     return x.where(mask > p, np.nan)
 
-df_nans = plant_nans(df, 0.1)
 
 normalized_df =(df - df.min())/(df.max() - df.min())
 
