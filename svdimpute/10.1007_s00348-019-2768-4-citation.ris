@@ -1,0 +1,20 @@
+TY  - JOUR
+AU  - Epps, Brenden P.
+AU  - Krivitzky, Eric M.
+PY  - 2019
+DA  - 2019/07/16
+TI  - Singular value decomposition of noisy data: noise filtering
+JO  - Experiments in Fluids
+SP  - 126
+VL  - 60
+IS  - 8
+AB  - The singular value decomposition (SVD) and proper orthogonal decomposition are widely used to decompose velocity field data into spatiotemporal modes. For noisy experimental data, the lower SVD modes remain relatively clean, which suggests the possibility for data filtering by retaining only the lower modes. Herein, we provide a method to (1) estimate the noise level in a given noisy dataset, (2) estimate the root mean square error (rmse) of the SVD modes, and (3) filter the noise using only the SVD modes that have low enough rmse. We show through both analytic and PIV examples that this method yields nearly the most accurate possible SVD-based reconstruction of the clean data. Moreover, we provide an analytic estimate of the accuracy of this reconstruction.
+SN  - 1432-1114
+UR  - https://doi.org/10.1007/s00348-019-2768-4
+DO  - 10.1007/s00348-019-2768-4
+ID  - Epps2019
+ER  - 
+
+
+!GDauA3%kd^'F%7
+p_xD-u$TEp5yEgO

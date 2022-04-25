@@ -1,5 +1,57 @@
 # # http://archive.ics.uci.edu/ml/datasets/Air+Quality
 
+# # %%
+# import pandas as pd
+# import numpy as np
+
+# df = pd.read_csv("AirQualityUCI.csv", sep=';', decimal=',').iloc[0:9357:, 2:15]
+# df
+# # %%
+
+# def plant_nans(x, p):
+#     mask = np.random.uniform(size=x.shape)
+#     return x.where(mask > p, np.nan)
+
+# df_nans = plant_nans(df, 0.1)
+
+# normalized_df =(df - df.min())/(df.max() - df.min())
+# df_nans = plant_nans(normalized_df, 0.1)
+
+
+# # %%
+
+# p = np.linspace(0, 0.5, 15)
+
+# def benchmark(model, x, ps):
+#     from sklearn.metrics import mean_squared_error
+
+#     mse = [0] * len(ps)
+#     for i, p in enumerate(ps):
+#         u = plant_nans(x, p)
+#         imputed = model.fit_transform(u)
+#         mse[i] = mean_squared_error(imputed, x)
+#     return mse
+
+# from sklearn.impute import KNNImputer
+
+
+# y = benchmark(KNNImputer(n_neighbors=4), normalized_df, p)
+# w = benchmark(KNNImputer(n_neighbors=4, weights='distance'), normalized_df, p)
+
+
+# # %%
+# import matplotlib.pyplot as plt
+# plt.style.use('bmh')
+
+
+# plt.plot(p, y, marker='o', label='not weighted')
+# plt.plot(p, w, marker='o', label='weighted')
+# plt.legend()
+# plt.show()
+# # %%
+
+# http://archive.ics.uci.edu/ml/datasets/Air+Quality
+
 # %%
 import pandas as pd
 import numpy as np
@@ -15,10 +67,10 @@ def plant_nans(x, p):
     mask = np.random.uniform(size=x.shape)
     return x.where(mask > p, np.nan)
 
+df_nans = plant_nans(df, 0.1)
 
 normalized_df =(df - df.min())/(df.max() - df.min())
 
-normalized_df.plot()
 
 # %%
 
@@ -35,7 +87,7 @@ def benchmark(model, x, ps):
     return mse
 
 
-w = 'uniform'
+w = 'distance'
 ys = [0] * 6
 ys[0] = benchmark(SimpleImputer(missing_values=np.nan, strategy='mean'), normalized_df, p)
 print('done')
@@ -62,3 +114,4 @@ plt.xlabel("Number of Neighbors")
 plt.ylabel("MSE")
 plt.legend()
 plt.show()
+# %%
